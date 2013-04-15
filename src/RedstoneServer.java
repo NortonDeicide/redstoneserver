@@ -27,9 +27,8 @@ public class RedstoneServer
 {
 	@Instance("TestModID")
 	public static RedstoneServer instance;
-	public static EnumToolMaterial = APPLE EnumHelper.addToolMaterial("APPLE", 3, 9000, 16F, 40, 10);
 	public static Item sawSword = new ItemSawSwordRS(7868, EnumToolMaterial.EMERALD).setItemName("sawSword").setIconCoord(0, 0);
-	public static Item greatApple = new ItemApple(7869, EnumToolMaterial.APPLE).setItemName("greatApple").setIconCoord(1, 0);
+	public static Item greatApple = new ItemApple(7869, EnumToolMaterial.EMERALD).setItemName("greatApple").setIconCoord(1, 0);
 	@Init
 	public void load(FMLInitializationEvent event)
 	{
