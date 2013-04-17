@@ -5,6 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.EnumHelper;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -27,14 +28,20 @@ public class RedstoneServer
 {
 	@Instance("TestModID")
 	public static RedstoneServer instance;
+	
+	public static EnumToolMaterial apple = EnumHelper.addToolMaterial("APPLE", 9999, 9999, 9999F, 9999, 9999);
+	
 	public static Item sawSword = new ItemSawSwordRS(7868, EnumToolMaterial.EMERALD).setItemName("sawSword").setIconCoord(0, 0);
-	public static Item greatApple = new ItemApple(7869, EnumToolMaterial.EMERALD).setItemName("greatApple").setIconCoord(1, 0);
+	public static Item greatApple = new ItemApple(7869, apple).setItemName("greatApple").setIconCoord(1, 0);
+	
+	
 	@Init
 	public void load(FMLInitializationEvent event)
 	{
 		LanguageRegistry.addName(sawSword, "Serrated Sword");
 		LanguageRegistry.addName(greatApple, "Secret Apple");
 		GameRegistry.addRecipe(new ItemStack(sawSword, 1), new Object[] {"AII", "ISI", "SIA", 'A', Item.diamond, 'I', Item.ingotIron, 'S', Item.stick});
+		GameRegistry.addRecipe(new ItemStack(greatApple, 1), new Object[] {"A", 'A', Item.stick});
 	}
 
 	@PreInit
